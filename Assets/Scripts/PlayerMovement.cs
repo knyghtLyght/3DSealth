@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 20f;
 
     Animator animator;
-    Rigidbody rigidbody;
+    Rigidbody playerRigidbody;
     Vector3 movement;
     Quaternion rotation = Quaternion.identity;
 
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * animator.deltaPosition.magnitude);
-        rigidbody.MoveRotation(rotation);
+        playerRigidbody.MovePosition(playerRigidbody.position + movement * animator.deltaPosition.magnitude);
+        playerRigidbody.MoveRotation(rotation);
     }
 }
